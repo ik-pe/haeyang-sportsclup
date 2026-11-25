@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
+<title>해양중 스포츠클럽</title>
+
+<!-- 홈 화면 아이콘 -->
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
+<link rel="manifest" href="manifest.json">
+<meta name="apple-mobile-web-app-title" content="해양중 스포츠클럽">
+<meta name="application-name" content="해양중 스포츠클럽">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="theme-color" content="#f3f5fa">
+
+<script>
+  /* ▼▼▼ 여기에 웹앱 주소(…/exec)를 붙여넣으세요 ▼▼▼ */
+  const WEBAPP_URL = 'https://script.google.com/macros/s/AKfycbwq1GCglX6JApwck1jOCWXz217ijEKT2viK40qErSMzmLdS7wetUVThzIxUheDAqC9hBQ/exec';
+  /* ▲▲▲ 따옴표(' ') 안에만 붙여넣고, 나머지는 건드리지 마세요 ▲▲▲ */
+</script>
+
+<style>
+  html, body { margin: 0; height: 100%; background: #f3f5fa; font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif; }
+  #app { position: fixed; inset: 0; width: 100%; height: 100%; border: 0; padding-top: env(safe-area-inset-top); box-sizing: border-box; background: #f3f5fa; }
+  #splash { position: fixed; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; background: #f3f5fa; color: #66728c; transition: opacity .3s; z-index: 2; }
+  #splash img { width: 88px; height: 88px; border-radius: 22px; box-shadow: 0 8px 24px rgba(47,91,232,.3); }
+  #splash b { color: #15203b; font-size: 18px; }
+  #help { display: none; max-width: 320px; text-align: center; font-size: 13.5px; line-height: 1.6; padding: 0 20px; }
+  #help a { display: inline-block; margin-top: 8px; padding: 10px 16px; border-radius: 10px; background: #2f5be8; color: #fff; text-decoration: none; font-weight: 600; }
+</style>
+</head>
+<body>
+<div id="splash">
+  <img src="apple-touch-icon.png" alt="">
+  <b>해양중 스포츠클럽 동아리</b>
+  <span>불러오는 중…</span>
+  <div id="help">화면이 나오지 않으면 아래 버튼으로 바로 열어 주세요.<br><a id="direct" href="#" target="_top">웹앱 바로 열기</a></div>
+</div>
+<iframe id="app" title="해양중 스포츠클럽 동아리" allow="clipboard-write"></iframe>
+<script>
+  // 이 페이지 주소에 붙은 ?page=admin 같은 값을 웹앱 주소에 그대로 전달 (교사용 주소: …/?page=admin)
+  const url = WEBAPP_URL + (location.search || '');
+  const frame = document.getElementById('app');
+  const splash = document.getElementById('splash');
+  document.getElementById('direct').href = url;
+  frame.addEventListener('load', () => { splash.style.opacity = '0'; setTimeout(() => splash.remove(), 300); });
+  setTimeout(() => { const h = document.getElementById('help'); if (h) h.style.display = 'block'; }, 10000);
+  frame.src = url;
+</script>
+</body>
+</html>

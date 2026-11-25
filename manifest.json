@@ -1,0 +1,13 @@
+{
+  "name": "해양중 스포츠클럽 동아리",
+  "short_name": "해양중 스포츠클럽",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#2f5be8",
+  "theme_color": "#2f5be8",
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}
