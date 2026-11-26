@@ -38,9 +38,13 @@
   <img src="apple-touch-icon.png" alt="">
   <b>해양중 스포츠클럽 동아리</b>
   <span>불러오는 중…</span>
-  <div id="help">화면이 나오지 않으면 아래 버튼으로 바로 열어 주세요.<br><a id="direct" href="#" target="_top">웹앱 바로 열기</a></div>
+  <div id="help">조금 오래 걸리고 있어요. 계속 안 나오면 다시 불러와 주세요.<br>
+    <a href="#" onclick="location.reload();return false;">다시 불러오기</a>
+    <div style="margin-top:14px;font-size:12px">그래도 안 되면 <a id="direct" href="#" target="_blank" rel="noopener" style="display:inline;padding:0;background:none;color:#2f5be8;text-decoration:underline">새 창에서 열기</a></div></div>
 </div>
-<iframe id="app" title="해양중 스포츠클럽 동아리" allow="clipboard-write"></iframe>
+<!-- sandbox: 웹앱 안쪽 화면이 바깥 주소(GitHub)를 바꾸지 못하게 막음 -->
+<iframe id="app" title="해양중 스포츠클럽 동아리" allow="clipboard-write"
+  sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-modals allow-downloads"></iframe>
 <script>
   // 이 페이지 주소에 붙은 ?page=admin 같은 값을 웹앱 주소에 그대로 전달 (교사용 주소: …/?page=admin)
   const url = WEBAPP_URL + (location.search || '');
@@ -48,7 +52,7 @@
   const splash = document.getElementById('splash');
   document.getElementById('direct').href = url;
   frame.addEventListener('load', () => { splash.style.opacity = '0'; setTimeout(() => splash.remove(), 300); });
-  setTimeout(() => { const h = document.getElementById('help'); if (h) h.style.display = 'block'; }, 10000);
+  setTimeout(() => { const h = document.getElementById('help'); if (h) h.style.display = 'block'; }, 20000);
   frame.src = url;
 </script>
 </body>
